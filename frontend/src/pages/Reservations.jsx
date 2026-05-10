@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
 import api from "../services/api";
+import Navbar from "../components/Navbar";
+
 
 export default function Reservations() {
 
@@ -33,8 +36,9 @@ export default function Reservations() {
   }, []);
 
   return (
+    
     <div className="p-10">
-
+      <Navbar />
       <div className="flex justify-between mb-8">
 
         <h1 className="text-3xl font-bold">

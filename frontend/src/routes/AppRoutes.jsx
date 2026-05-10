@@ -7,6 +7,7 @@ import {
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import Dashboard from "../pages/Dashboard";
+import Reservations from "../pages/Reservations";
 
 import ProtectedRoute from "../components/ProtectedRoute";
 
@@ -37,6 +38,11 @@ export default function AppRoutes() {
               <Dashboard />
             </ProtectedRoute>
           }
+        />
+
+        <Route
+          path="/reservations"
+          element={<Reservations />}
         />
 
       </Routes>
