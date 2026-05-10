@@ -1,9 +1,18 @@
 const prisma = require('../config/prisma')
 const crypto = require('crypto')
+const { reservationSchema } = require('../validations/reservationValidation')
 
 exports.create = async (req, res) => {
 
   try {
+
+    const validation = reservationSchema.safeParse(req.body)
+
+    if (!validation.success) {
+      return res.status(400).json({
+        errors: validation.error.issues
+      })
+    }
 
     const { date } = req.body
 

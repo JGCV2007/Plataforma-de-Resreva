@@ -1,9 +1,19 @@
 const bcrypt = require('bcrypt')
 const prisma = require('../config/prisma')
 const { generateToken } = require('../utils/jwt')
+const { registerSchema, loginSchema } = require('../validations/authValidation')
 
 exports.register = async (req, res) => {
   try {
+
+    const validation =
+      registerSchema.safeParse(req.body)
+
+    if (!validation.success) {
+      return res.status(400).json({
+        errors: validation.error.issues
+      })
+    }
 
     const { name, email, password } = req.body
 
@@ -42,6 +52,14 @@ exports.register = async (req, res) => {
 exports.login = async (req, res) => {
 
   try {
+
+    const validation = loginSchema.safeParse(req.body)
+
+    if (!validation.success) {
+      return res.status(400).json({
+        errors: validation.error.issues
+      })
+    }
 
     const { email, password } = req.body
 
