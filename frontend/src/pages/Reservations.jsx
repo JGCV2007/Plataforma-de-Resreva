@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import api from "../services/api";
-import Navbar from "../components/Navbar";
+import Navbar from "../Components/Navbar";
 
 export default function Reservations() {
 
