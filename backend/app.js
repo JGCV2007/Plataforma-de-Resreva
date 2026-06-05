@@ -6,7 +6,13 @@ const reservationRoutes = require('./routes/reservationRoutes')
 
 const app = express()
 
-app.use(cors())
+app.use(cors({
+  origin: [
+    "http://localhost:5173",
+    "https://plataforma-reserva.vercel.app"
+  ]
+}))
+
 app.use(express.json())
 
 app.use('/auth', authRoutes)
