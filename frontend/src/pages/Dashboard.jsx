@@ -2,17 +2,20 @@ import { useForm } from "react-hook-form";
 import { useContext, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { useNavigate, Link } from "react-router-dom";
-
+import Navbar from "../components/Navbar";
 
 export default function Dashboard() {
 
   return (
     <div className="min-h-screen bg-gray-100">
 
-      {/* Navbar */}
+
+
       <header className="bg-black text-white p-5">
 
-        <div className="max-w-6xl mx-auto flex justify-between items-center">
+        <Navbar />
+
+      {/* <div className="max-w-6xl mx-auto flex justify-between items-center">
 
           <h1 className="text-2xl font-bold">
             Plataforma de Reservas
@@ -36,7 +39,7 @@ export default function Dashboard() {
 
           </nav>
 
-        </div>
+        </div> */}
 
       </header>
 
